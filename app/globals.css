@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans;
+  }
+}
+
+@layer base {
+  .richtext-preview p { @apply mb-3 leading-relaxed text-gray-800; }
+  .richtext-preview h1,
+  .richtext-preview h2,
+  .richtext-preview h3 { @apply font-semibold text-gray-900 mb-2 mt-4; }
+  .richtext-preview h1 { @apply text-xl; }
+  .richtext-preview h2 { @apply text-lg; }
+  .richtext-preview h3 { @apply text-base; }
+  .richtext-preview ul { @apply list-disc pl-5 mb-3 space-y-1; }
+  .richtext-preview ol { @apply list-decimal pl-5 mb-3 space-y-1; }
+  .richtext-preview strong { @apply font-semibold; }
+  .richtext-preview em { @apply italic; }
+  .richtext-preview a { @apply text-indigo-600 underline; }
+  .richtext-preview figure { @apply my-3; }
+  .richtext-preview img { @apply rounded-lg max-w-full h-auto; }
+  .richtext-preview blockquote { @apply border-l-4 border-gray-200 pl-4 italic text-gray-600 my-3; }
+}
+
+@layer components {
+  .input-base {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-sm
+           focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+           transition-shadow;
+  }
+
+  .btn-primary {
+    @apply px-5 py-2.5 text-sm font-medium text-white bg-indigo-600 rounded-lg
+           hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300
+           rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors;
+  }
+
+  .badge-draft {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium
+           bg-amber-50 text-amber-700 border border-amber-200;
+  }
+
+  .badge-published {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium
+           bg-emerald-50 text-emerald-700 border border-emerald-200;
+  }
+
+  .badge-archived {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium
+           bg-gray-100 text-gray-500 border border-gray-200;
+  }
+}
