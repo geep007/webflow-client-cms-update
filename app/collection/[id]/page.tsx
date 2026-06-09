@@ -5,12 +5,14 @@ import { clientConfig } from "@/config/collections";
 import ItemCard from "@/components/ItemCard";
 
 interface CollectionPageProps {
-  params: { id: string };
-  searchParams: { offset?: string };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ offset?: string }>;
 }
 
 export default async function CollectionPage({ params, searchParams }: CollectionPageProps) {
-  const offset = Number(searchParams.offset ?? 0);
+  const { id } = await params;
+  const { offset: offsetParam } = await searchParams;
+  const offset = Number(offsetParam ?? 0);
   const limit = 100;
 
   let collection;

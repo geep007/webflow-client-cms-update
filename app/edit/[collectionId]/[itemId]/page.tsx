@@ -5,7 +5,7 @@ import { clientConfig } from "@/config/collections";
 import EditForm from "@/components/EditForm";
 
 interface EditPageProps {
-  params: { collectionId: string; itemId: string };
+  params: Promise<{ collectionId: string; itemId: string }>;
 }
 
 function StatusBadge({ isDraft, isArchived }: { isDraft: boolean; isArchived: boolean }) {
@@ -15,7 +15,7 @@ function StatusBadge({ isDraft, isArchived }: { isDraft: boolean; isArchived: bo
 }
 
 export default async function EditPage({ params }: EditPageProps) {
-  const { collectionId, itemId } = params;
+  const { collectionId, itemId } = await params;
 
   let collection;
   let item;
